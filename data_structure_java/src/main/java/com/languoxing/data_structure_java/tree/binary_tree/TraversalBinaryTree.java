@@ -49,6 +49,7 @@ public class TraversalBinaryTree {
             results = results1;
             results1 = inorderTraversal(root.getRight());
             results.addAll(results1);
+            break;
 
         }
         return results;
