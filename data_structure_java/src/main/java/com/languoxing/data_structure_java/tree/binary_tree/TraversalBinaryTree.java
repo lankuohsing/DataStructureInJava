@@ -1,5 +1,7 @@
 package com.languoxing.data_structure_java.tree.binary_tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /*
@@ -36,6 +38,21 @@ public class TraversalBinaryTree {
             root = root.getRight();
 
         }
+    }
+
+    public List<Integer> inorderTraversal(BinaryTree root) {
+        List<Integer> results = new ArrayList();
+        while (root != null) {
+            List<Integer> results1 = new ArrayList();
+            results1 = inorderTraversal(root.getLeft());
+            results1.add(root.getDate());
+            results = results1;
+            results1 = inorderTraversal(root.getRight());
+            results.addAll(results1);
+
+        }
+        return results;
+
     }
 
 }
