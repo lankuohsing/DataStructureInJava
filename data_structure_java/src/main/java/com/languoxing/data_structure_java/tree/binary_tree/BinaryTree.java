@@ -15,7 +15,7 @@ public class BinaryTree {
         this.right = right;
     }
 
-    public int getDate() {
+    public int getData() {
         return data;
     }
 

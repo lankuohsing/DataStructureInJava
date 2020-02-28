@@ -23,6 +23,10 @@ public class Main {
         System.out.println("-----前序遍历------");
         System.out.print("递归:\t");
         tree.preOrderRecursive(node1);
+        List<Integer> resultsPreOrderRecursive = new ArrayList<Integer>();
+        tree.preOrderRecursive(node1, resultsPreOrderRecursive);
+        System.out.println();
+        System.out.println(resultsPreOrderRecursive);
         System.out.println();
 
         // 采用非递归的方式遍历
@@ -30,7 +34,21 @@ public class Main {
         tree.preOrderNonRecursive(node1);
         System.out.println();
 
-        List<Integer> results = new ArrayList<Integer>();
-        results = tree.inorderTraversal(node1);
+        // 采用递归的方式进行遍历
+        System.out.println("-----中序遍历------");
+        System.out.print("递归:\t");
+        List<Integer> resultsInorderTraversalReturn;
+        resultsInorderTraversalReturn = tree.inorderTraversalReturn(node1);
+        System.out.println(resultsInorderTraversalReturn);
+        List<Integer> resultsInorderTraversal = new ArrayList<Integer>();
+        tree.inOrderRecursive(node1, resultsInorderTraversal);
+        System.out.println(resultsInorderTraversal);
+
+        // 采用递归的方式进行遍历
+        System.out.println("-----后序遍历------");
+        System.out.print("递归:\t");
+        List<Integer> resultsPostorderTraversalReturn = new ArrayList<Integer>();
+        tree.postOrderRecursive(node1, resultsPostorderTraversalReturn);
+        System.out.println(resultsPostorderTraversalReturn);
     }
 }
