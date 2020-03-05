@@ -27,4 +27,12 @@ public class BinaryTree {
         return right;
     }
 
+    public void setLeft(BinaryTree left) {
+        this.left = left;
+    }
+
+    public void setRight(BinaryTree right) {
+        this.right = right;
+    }
+
 }
