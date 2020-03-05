@@ -29,7 +29,7 @@ public class TraversalBinaryTree {
     }
 
     /*
-     * 采用递归的方式前序遍历.先访问根节点，再访问左节点，最后访问右节点
+     * 采用非递归的方式前序遍历.先访问根节点，再访问左节点，最后访问右节点
      */
     public void preOrderNonRecursive(BinaryTree root) {
         Stack<BinaryTree> stack = new Stack<BinaryTree>();
