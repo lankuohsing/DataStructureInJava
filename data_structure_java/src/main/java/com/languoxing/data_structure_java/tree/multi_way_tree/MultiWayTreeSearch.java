@@ -27,8 +27,13 @@ public class MultiWayTreeSearch {
         seven.addChildren(nine);
         seven.addChildren(ten);
         List<List<Integer>> paths = (new MultiWayTreeSearch()).dfsRecursive(head);
+        System.out.println("depth first search:");
         System.out.println(paths);
+        System.out.println("max depth:");
         System.out.println((new MultiWayTreeSearch()).maxDepth(head));
+        List<List<Integer>> levels = new MultiWayTreeSearch().wfsRecursive(head);
+        System.out.println("width first search");
+        System.out.print(levels);
     }
 
     public List<List<Integer>> dfsRecursive(MultiWayTreeNode root) {
@@ -70,6 +75,25 @@ public class MultiWayTreeSearch {
                     List<Integer> depth1 = new ArrayList<Integer>(depth);
                     buildPaths1(child, maxDepth, depth1);
                 }
+            }
+        }
+    }
+
+    public List<List<Integer>> wfsRecursive(MultiWayTreeNode root) {
+        List<List<Integer>> levels = new ArrayList<List<Integer>>();
+        int depth = 0;
+        getLevels(root, levels, depth);
+        return levels;
+    }
+
+    public void getLevels(MultiWayTreeNode root, List<List<Integer>> levels, int depth) {
+        if (root != null) {
+            if (levels.size() == depth) {
+                levels.add(new ArrayList<Integer>());
+            }
+            levels.get(depth).add(root.getVal());
+            for (MultiWayTreeNode child : root.getChildren()) {
+                getLevels(child, levels, depth + 1);
             }
         }
     }
